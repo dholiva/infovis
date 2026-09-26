@@ -1,48 +1,482 @@
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mis trabajos de infovis</title>
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <script src="https://flourish.studio"></script>
-  <style>
-    body { font-family: 'Inter', sans-serif; background-color: #141414; color: #e5e5e5; margin: 0; padding: 0; line-height: 1.6; }
-    .header-principal { background: linear-gradient(135deg, #e50914 0%, #80070e 100%); color: white; padding: 40px 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-    .header-principal h1 { margin: 0; font-size: 2.2rem; font-weight: 700; }
-    .header-principal h2 { margin: 10px 0 0 0; font-size: 1.2rem; font-weight: 300; opacity: 0.9; }
-    .seccion-contenido { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-    .tarjeta-metodologia { background-color: #1f1f1f; border-left: 5px solid #e50914; padding: 25px; border-radius: 4px; margin-bottom: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-    .tarjeta-metodologia h2 { margin-top: 0; color: #fff; font-size: 1.4rem; }
-    .tarjeta-metodologia p { color: #cccccc; font-size: 0.95rem; margin-bottom: 0; }
-    .card-grafico { background-color: #ffffff; color: #181818; border-radius: 8px; padding: 30px; margin-bottom: 50px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
-    .badge-herramienta { display: inline-block; padding: 6px 12px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px; }
-    .rawgraphs { background-color: #e2f7ed; color: #117346; }
-    .flourish { background-color: #e6f0fa; color: #1860aa; }
-    .datawrapper { background-color: #e6f7f7; color: #008085; }
-    .tableau { background-color: #fdf0e6; color: #b35300; }
-    .card-grafico h2 { font-size: 1.35rem; font-weight: 600; margin-top: 0; margin-bottom: 25px; color: #111111; line-height: 1.4; }
-    .canvas-grafico { background-color: #fafafa; border: 1px solid #e5e5e5; border-radius: 6px; padding: 15px; margin-bottom: 25px; }
-    .scroll-box { max-height: 500px; overflow-y: scroll; border: 1px solid #e5e5e5; padding: 15px; background-color: #fafafa; border-radius: 6px; margin-bottom: 25px; }
-    .card-grafico h3, .card-grafico p { font-size: 1rem; font-weight: 400; color: #444444; margin: 0; padding-top: 15px; border-top: 1px solid #eeeeee; line-height: 1.6; }
-  </style>
+
+```
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<title>Mis trabajos de Infovis</title>
+
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+
+<style>
+
+    body {
+        margin: 0;
+        background-color: #f3f4f6;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #333333;
+    }
+
+    .contenedor {
+        width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* ENCABEZADO */
+
+    .encabezado {
+        background-color: #343434;
+        color: white;
+        padding: 35px;
+        text-align: center;
+        margin-bottom: 40px;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    }
+
+    .encabezado h1 {
+        margin: 0 0 15px 0;
+        font-size: 30px;
+    }
+
+    .encabezado h2 {
+        margin: 8px 0;
+        font-size: 19px;
+        font-weight: normal;
+    }
+
+    /* SECCIONES */
+
+    .seccion {
+        background-color: white;
+        padding: 30px;
+        margin-bottom: 35px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .titulo-seccion {
+        border-left: 5px solid #555555;
+        padding-left: 12px;
+        margin-top: 0;
+        color: #333333;
+        font-size: 27px;
+    }
+
+    .pregunta {
+        color: #444444;
+        font-size: 21px;
+        margin-bottom: 25px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    h3 {
+        font-size: 17px;
+        line-height: 1.6;
+        font-weight: normal;
+    }
+
+    /* GRAFICOS */
+
+    .grafico {
+        text-align: center;
+        margin: 25px 0;
+    }
+
+    .grafico object {
+        width: 100%;
+        min-height: 500px;
+    }
+
+    /* FLOURISH */
+
+    .flourish {
+        width: 100%;
+        margin: 25px auto;
+    }
+
+    .grafico-scroll {
+        width: 90%;
+        height: 500px;
+        overflow-y: scroll;
+        margin: 30px auto;
+        border: 1px solid #dddddd;
+        padding: 10px;
+        background-color: #fafafa;
+    }
+
+    /* DATAWRAPPER */
+
+    .datawrapper {
+        width: 100%;
+        margin: 25px auto;
+    }
+
+    /* TABLEAU */
+
+    .tableau {
+        width: 90%;
+        margin: 30px auto;
+        border: 1px solid #dddddd;
+        padding: 10px;
+        background-color: #fafafa;
+    }
+
+    /* SEPARADORES */
+
+    .separador {
+        border: 0;
+        border-top: 1px solid #dddddd;
+        margin: 40px 0;
+    }
+
+</style>
+```
+
 </head>
+
 <body>
-  <header class="header-principal">
-      <h1>Trabajo Práctico: Visualización de Datos Personales</h1>
-      <h2>Visualizaciones en plataforma de streaming Netflix</h2>
-      <h2>Alumno: Diego Hernán Oliva</h2>
-  </header>
-  <main class="seccion-contenido">
-    <section class="tarjeta-metodologia">
-      <h2>Metodologia de trabajo</h2>
-      <p>En primer lugar se le solicito a la plataforma Netflix un archivo con las visualizaciones realizadas con mi usuario "NetflixViewingHistory.csv"... (código completo incluido en el bloque original de tu archivo).</p>
-    </section>
-    <!-- Contenido completo de las tarjetas con RawGraphs, Flourish, Datawrapper y Tableau con la corrección de vizElement -->
-  </main>
+
+```
+<!-- ENCABEZADO -->
+
+<div class="encabezado">
+
+    <h1>Trabajo Práctico: Visualización de Datos Personales</h1>
+
+    <h2>Visualizaciones en plataforma de streaming Netflix</h2>
+
+    <h2>Alumno: Diego Hernán Oliva</h2>
+
+</div>
+
+
+<div class="contenedor">
+
+
+    <!-- METODOLOGIA -->
+
+    <div class="seccion">
+
+        <h2 class="titulo-seccion">Metodologia de trabajo</h2>
+
+        <p>
+
+            En primer lugar se le solicito a la plataforma Netflix un archivo con las visualizaciones realizadas con mi usuario "NetflixViewingHistory.csv"
+
+            El mismo solo contenia las siguientes columnas "Title: Titulo" "Date:Fecha"
+
+            Este archivo fue trabajado en Excel, en donde con las distintas funciones se coloco en la tabla el dia de la semana, el año, se agrego una columna Total en donde se puso un numero 1 para poder realizar las sumatorias, la columna titulo se trato de identificar series y peliculas, y ademas episodios/temporadas.
+
+            Los grafivos presentados corresponden a la herramientas: RawGraphs, Flourish, DataWrapper, y Tableau.
+
+        </p>
+
+    </div>
+
+
+    <hr class="separador">
+
+
+    <!-- RAWGRAPHS -->
+
+    <div class="seccion">
+
+        <h2 class="titulo-seccion">
+            Visualizaciones mediante la herramienta RawGraphs
+        </h2>
+
+        <h2 class="pregunta">
+            ¿Qué predominó más en mis visualizaciones año a año y cómo impactó el 2020?
+        </h2>
+
+
+        <div class="grafico">
+
+            <object
+                type="image/svg+xml"
+                data="SerieVsPeliculas.svg">
+            </object>
+
+        </div>
+
+
+        <h3>
+
+            El gráfico deja en evidencia que utilizo Netflix principalmente como mi plataforma para ver series, las cuales superan ampliamente en volumen a las películas a lo largo de los años. Además, los datos reflejan un pico histórico de consumo en 2020 (el año de pandemia), momento en el que mis visualizaciones de series se dispararon de forma notable en comparación con el resto de los años.
+
+        </h3>
+
+    </div>
+
+
+    <hr class="separador">
+
+
+    <!-- FLOURISH -->
+
+    <div class="seccion">
+
+        <h1 class="titulo-seccion">
+            Visualización mediante Flourish
+        </h1>
+
+        <h2 class="pregunta">
+            ¿Qué días de la semana por año concentro mis visualizaciones en Netflix?
+        </h2>
+
+
+        <div class="flourish">
+
+            <div
+                class="flourish-embed flourish-bar-chart-race"
+                data-src="visualisation/30255124">
+
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+
+                <noscript>
+
+                    <img
+                        src="https://public.flourish.studio/visualisation/30255124/thumbnail"
+                        width="100%"
+                        alt="bar-chart-race visualization">
+
+                </noscript>
+
+            </div>
+
+        </div>
+
+
+        <br>
+
+
+        <div class="grafico-scroll">
+
+            <div
+                class="flourish-embed flourish-chart"
+                data-src="visualisation/30261348">
+
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+
+                <noscript>
+
+                    <img
+                        src="https://public.flourish.studio/visualisation/30261348/thumbnail"
+                        width="100%"
+                        alt="chart visualization">
+
+                </noscript>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <hr class="separador">
+
+
+    <!-- DATAWRAPPER -->
+
+    <div class="seccion">
+
+        <h1 class="titulo-seccion">
+            DataWrapper
+        </h1>
+
+
+        <div class="datawrapper">
+
+            <div
+                style="min-height:379px"
+                id="datawrapper-vis-g1R5y">
+
+                <script
+                    type="text/javascript"
+                    defer
+                    src="https://datawrapper.dwcdn.net/g1R5y/embed.js"
+                    charset="utf-8"
+                    data-target="#datawrapper-vis-g1R5y">
+                </script>
+
+                <noscript>
+
+                    <img
+                        src="https://datawrapper.dwcdn.net/g1R5y/full.png"
+                        alt="¿Que serie tuve mi mayor cantidad de maratones? (Scatter Plot)">
+
+                </noscript>
+
+            </div>
+
+        </div>
+
+
+        <p>
+
+            El diagrama de dispersión expone mis conductas de maratones de reproducción. Mientras que el consumo habitual se concentra moderadamente en la base con menos de 5 capítulos por día, resaltan picos aislados de gran intensidad. El récord ocurre a principios de 2021 con 25 episodios reproducidos en una sola jornada, superando incluso los niveles alcanzados durante la cuarentena de 2020
+
+        </p>
+
+    </div>
+
+
+    <hr class="separador">
+
+
+    <!-- TABLEAU -->
+
+    <div class="seccion">
+
+        <h1 class="titulo-seccion">
+            Tableau
+        </h1>
+
+
+        <h2 class="pregunta">
+            ¿En qué meses se encuentran mis mayores picos de consumo en Netflix, tanto para series o películas?
+        </h2>
+
+
+        <div class="tableau">
+
+            <div
+                class="tableauPlaceholder"
+                id="viz1790276614479"
+                style="position: relative">
+
+                <noscript>
+
+                    <a href="#">
+
+                        <img
+                            alt="Consumo de series y peliculas"
+                            src="https://public.tableau.com/static/images/Vi/Visualizacionesmensuales/Consumodeseriesypeliculas/1_rss.png"
+                            style="border: none">
+
+                    </a>
+
+                </noscript>
+
+
+                <object
+                    class="tableauViz"
+                    style="display:none;">
+
+                    <param
+                        name="host_url"
+                        value="https%3A%2F%2Fpublic.tableau.com%2F">
+
+                    <param
+                        name="embed_code_version"
+                        value="3">
+
+                    <param
+                        name="site_root"
+                        value="">
+
+                    <param
+                        name="name"
+                        value="Visualizacionesmensuales/Consumodeseriesypeliculas">
+
+                    <param
+                        name="tabs"
+                        value="no">
+
+                    <param
+                        name="toolbar"
+                        value="yes">
+
+                    <param
+                        name="static_image"
+                        value="https://public.tableau.com/static/images/Vi/Visualizacionesmensuales/Consumodeseriesypeliculas/1.png">
+
+                    <param
+                        name="animate_transition"
+                        value="yes">
+
+                    <param
+                        name="display_static_image"
+                        value="yes">
+
+                    <param
+                        name="display_spinner"
+                        value="yes">
+
+                    <param
+                        name="display_overlay"
+                        value="yes">
+
+                    <param
+                        name="display_count"
+                        value="yes">
+
+                    <param
+                        name="language"
+                        value="es-ES">
+
+                    <param
+                        name="filter"
+                        value="publish=yes">
+
+                </object>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                var divElement =
+                    document.getElementById('viz1790276614479');
+
+                var vizElement =
+                    divElement.getElementsByTagName('object')[0];
+
+                vizElement.style.width = '100%';
+
+                vizElement.style.height =
+                    (divElement.offsetWidth * 0.75) + 'px';
+
+                var scriptElement =
+                    document.createElement('script');
+
+                scriptElement.src =
+                    'https://public.tableau.com/javascripts/api/viz_v1.js';
+
+                vizElement.parentNode.insertBefore(
+                    scriptElement,
+                    vizElement
+                );
+
+            </script>
+
+        </div>
+
+
+        <p>
+
+            Este mapa de calor permite visualizar la distribución de mis visualizaciones cruzando los meses del año con los días de la semana. Se observa que meses como febrero y diciembre concentran los mayores volúmenes de reproducción en gran parte de sus jornadas, marcando períodos de alta actividad de streaming, mientras que otros meses presentan una distribución más moderada o valles específicos de consumo.
+
+        </p>
+
+    </div>
+
+
+</div>
+```
+
 </body>
+
 </html>
 
 
