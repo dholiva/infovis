@@ -3,108 +3,220 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mis trabajos de Infovis</title>
-  <script src="https://public.flourish.studio/resources/embed.js"></script>
+  <title>mis trabajos de infovis</title>
+  
+  <!-- Importación de tipografía moderna -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://flourish.studio"></script>
+
+  <style>
+    /* Estilos Generales y Fondo de la página */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #141414; /* Fondo estilo plataforma de streaming */
+      color: #e5e5e5;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    /* Encabezado Principal */
+    .header-principal {
+      background: linear-gradient(135deg, #e50914 0%, #80070e 100%); /* Degradado Rojo Netflix */
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    .header-principal h1 { margin: 0; font-size: 2.2rem; font-weight: 700; }
+    .header-principal h2 { margin: 10px 0 0 0; font-size: 1.2rem; font-weight: 300; opacity: 0.9; }
+
+    /* Contenedor de la lectura */
+    .seccion-contenido {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* Tarjeta de Metodología */
+    .tarjeta-metodologia {
+      background-color: #1f1f1f;
+      border-left: 5px solid #e50914;
+      padding: 25px;
+      border-radius: 4px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .tarjeta-metodologia h2 { margin-top: 0; color: #fff; font-size: 1.4rem; }
+    .tarjeta-metodologia p { color: #cccccc; font-size: 0.95rem; margin-bottom: 0; }
+
+    /* Estructura de Tarjetas para Gráficos (Cards) */
+    .card-grafico {
+      background-color: #ffffff; /* Contenedor blanco para máxima legibilidad del gráfico */
+      color: #181818;
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 50px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    /* Insignias de Herramientas */
+    .badge-herramienta {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      letter-spacing: 0.5px;
+    }
+    .rawgraphs { background-color: #e2f7ed; color: #117346; }
+    .flourish { background-color: #e6f0fa; color: #1860aa; }
+    .datawrapper { background-color: #e6f7f7; color: #008085; }
+    .tableau { background-color: #fdf0e6; color: #b35300; }
+
+    /* Títulos dentro de las tarjetas */
+    .card-grafico h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-top: 0;
+      margin-bottom: 25px;
+      color: #111111;
+      line-height: 1.4;
+    }
+
+    /* Contenedores internos de los gráficos */
+    .canvas-grafico {
+      background-color: #fafafa;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 25px;
+    }
+
+    /* Caja de Scroll para Flourish largo */
+    .scroll-box {
+      max-height: 500px;
+      overflow-y: scroll;
+      border: 1px solid #e5e5e5;
+      padding: 15px;
+      background-color: #fafafa;
+      border-radius: 6px;
+      margin-bottom: 25px;
+    }
+
+    /* Textos de Conclusión */
+    .card-grafico h3, .card-grafico p {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #444444;
+      margin: 0;
+      padding-top: 15px;
+      border-top: 1px solid #eeeeee;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Encabezado Principal -->
-  <div style="background-color: gray; color: white; padding:20px; font-family: sans-serif;">
+  <header class="header-principal">
       <h1>Trabajo Práctico: Visualización de Datos Personales</h1>
       <h2>Visualizaciones en plataforma de streaming Netflix</h2>
       <h2>Alumno: Diego Hernán Oliva</h2>
-  </div>
+  </header>
 
-  <!-- Metodología -->
-  <h2>Metodología de trabajo</h2>
-  <p>
-      En primer lugar se le solicitó a la plataforma Netflix un archivo con las visualizaciones realizadas con mi usuario "NetflixViewingHistory.csv".
-      El mismo solo contenía las siguientes columnas: "Title: Título" y "Date: Fecha".
-      Este archivo fue trabajado en Excel, en donde con las distintas funciones se colocó en la tabla el día de la semana, el año y se agregó una columna Total con un número 1 para poder realizar las sumatorias. En la columna título se trató de identificar series y películas, además de episodios/temporadas.
-      Los gráficos presentados corresponden a las herramientas: RawGraphs, Flourish, Datawrapper y Tableau.
-  </p>    
+  <!-- Cuerpo de la página -->
+  <main class="seccion-contenido">
 
-  <!-- Sección 1: RawGraphs -->
-  <h1>Visualizaciones mediante la herramienta RawGraphs</h1>
-  <h2>¿Qué predominó más en mis visualizaciones año a año y cómo impactó el 2020?</h2>
-  <div style="max-width: 75%; margin: 30px auto; text-align: center;">
-      <object type="image/svg+xml" data="SerieVsPeliculas.svg" style="max-width: 100%;"></object>
-  </div>
-  <h3>
-      El gráfico deja en evidencia que utilizo Netflix principalmente como mi plataforma para ver series, las cuales superan ampliamente en volumen a las películas a lo largo de los años. Además, los datos reflejan un pico histórico de consumo en 2020 (el año de pandemia), momento en el que mis visualizaciones de series se dispararon de forma notable en comparación con el resto de los años.
-  </h3>
-  <br>
+    <!-- Bloque de Metodología de Trabajo -->
+    <section class="tarjeta-metodologia">
+      <h2>Metodologia de trabajo</h2>
+      <p>
+          En primer lugar se le solicito a la plataforma Netflix un archivo con las visualizaciones realizadas con mi usuario "NetflixViewingHistory.csv"
+          El mismo solo contenia las siguientes columnas "Title: Titulo" "Date:Fecha"
+          Este archivo fue trabajado en Excel, en donde con las distintas funciones se coloco en la tabla el dia de la semana, el año, se agrego una columna Total en donde se puso un numero 1 para poder realizar las sumatorias, la columna titulo se trato de identificar series y peliculas, y ademas episodios/temporadas.
+          Los grafivos presentados corresponden a la herramientas: RawGraphs, Flourish, DataWrapper, y Tableau.
+      </p>
+    </section>
 
-  <!-- Sección 2: Flourish -->
-  <h1>Visualización mediante Flourish</h1>
-  <h2>¿Qué días de la semana por año concentro mis visualizaciones en Netflix?</h2>
-  <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/30255124">
-      <script src="https://public.flourish.studio/resources/embed.js"></script>
-      <noscript><img src="https://public.flourish.studio/visualisation/30255124/thumbnail" width="100%" alt="bar-chart-race visualization" /></noscript>
-  </div>
- 
-  <br>
-  <div style="max-width: 75%; height: 500px; overflow-y: scroll; margin: 30px auto; border: 1px solid #ccc; padding: 10px;">
-      <div class="flourish-embed flourish-chart" data-src="visualisation/30261348">
-          <script src="https://public.flourish.studio/resources/embed.js"></script>
-          <noscript><img src="https://public.flourish.studio/visualisation/30261348/thumbnail" width="100%" alt="chart visualization" /></noscript>
+    <!-- Tarjeta 1: RawGraphs -->
+    <article class="card-grafico">
+      <span class="badge-herramienta rawgraphs">RawGraphs</span>
+      <h2>¿Qué predominó más en mis visualizaciones año a año y cómo impactó el 2020?</h2>
+      <div class="canvas-grafico" style="text-align: center;">
+          <object type="image/svg+xml" data="SerieVsPeliculas.svg" style="max-width: 100%; width: 100%;"></object>
       </div>
-  </div>
+      <h3>El gráfico deja en evidencia que utilizo Netflix principalmente como mi plataforma para ver series, las cuales superan ampliamente en volumen a las películas a lo largo de los años. Además, los datos reflejan un pico histórico de consumo en 2020 (el año de pandemia), momento en el que mis visualizaciones de series se dispararon de forma notable en comparación con el resto de los años.</h3>
+    </article>
 
-  <!-- Sección 3: Datawrapper -->
-  <h1>Visualización mediante Datawrapper</h1>
-  <h2>¿Cuántos episodios llegué a ver en un solo día en mis registros de Netflix?</h2>
-  <div style="max-width: 75%; margin: 30px auto; border: 1px solid #ccc; padding: 10px;">
-      <div style="min-height:379px" id="datawrapper-vis-g1R5y">
-          <script type="text/javascript" defer src="https://datawrapper.dwcdn.net/g1R5y/embed.js" charset="utf-8" data-target="#datawrapper-vis-g1R5y"></script>
-          <noscript><img src="https://datawrapper.dwcdn.net/g1R5y/full.png" alt="¿Cuántos episodios llegué a ver en un solo día en mis registros de Netflix? (Scatter Plot)" /></noscript>
+    <!-- Tarjeta 2: Flourish -->
+    <article class="card-grafico">
+      <span class="badge-herramienta flourish">Flourish</span>
+      <h2>¿Qué días de la semana por año concentro mis visualizaciones en Netflix?</h2>
+      
+      <!-- Gráfico animado arriba -->
+      <div class="canvas-grafico">
+          <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/30255124">
+              <noscript><img src="https://flourish.studio" width="100%" alt="bar-chart-race visualization" /></noscript>
+          </div>
       </div>
-  </div>
-  <h3>
-      El diagrama de dispersión expone de manera muy clara mis conductas de "binge-watching" (maratones de reproducción). Mientras que el consumo habitual se concentra moderadamente en la base con menos de 5 capítulos por día, resaltan picos aislados de alta intensidad. El récord absoluto ocurre a principios de 2021 con 25 episodios reproducidos en una sola jornada, superando incluso los niveles alcanzados durante la cuarentena de 2020.
-  </h3>
-  <br>
- 
-  <!-- Sección 4: Tableau -->
-  <h1>Visualización mediante Tableau</h1>
-  <h2>¿En qué meses se encuentran mis mayores picos de consumo en Netflix, tanto para series o películas?</h2>
-  <br>
-  <div style="max-width: 75%; margin: 30px auto; border: 1px solid #ccc; padding: 10px;">
-      <div class='tableauPlaceholder' id='viz1790276614479' style='position: relative'>
-          <noscript>
-              <a href='#'><img alt='Consumo de series y peliculas ' src='https://public.tableau.com/static/images/Vi/Visualizacionesmensuales/Consumodeseriesypeliculas/1_rss.png' style='border: none' /></a>
-          </noscript>
-          <object class='tableauViz' style='display:none;'>
-              <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
-              <param name='embed_code_version' value='3' /> 
-              <param name='site_root' value='' />
-              <param name='name' value='Visualizacionesmensuales/Consumodeseriesypeliculas' />
-              <param name='tabs' value='no' />
-              <param name='toolbar' value='yes' />
-              <param name='static_image' value='https://public.tableau.com/static/images/Vi/Visualizacionesmensuales/Consumodeseriesypeliculas/1.png' /> 
-              <param name='animate_transition' value='yes' />
-              <param name='display_static_image' value='yes' />
-              <param name='display_spinner' value='yes' />
-              <param name='display_overlay' value='yes' />
-              <param name='display_count' value='yes' />
-              <param name='language' value='es-ES' />
-              <param name='filter' value='publish=yes' />
-          </object>
-      </div>                
-      <script type='text/javascript'>                    
-          var divElement = document.getElementById('viz1790276614479');                    
-          var vizElement = divElement.getElementsByTagName('object')[0];                    
-          vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
-          var scriptElement = document.createElement('script');                    
-          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
-          vizElement.parentNode.insertBefore(scriptElement, vizElement);                
-      </script>
-  </div>
-  <h3>
-      Este mapa de calor permite visualizar la distribución de mis visualizaciones cruzando los meses del año con los días de la semana. Se observa que meses como febrero y diciembre concentran los mayores volúmenes de reproducción en gran parte de sus jornadas, marcando períodos de alta actividad de streaming, mientras que otros meses presentan una distribución más moderada o valles específicos de consumo.
-  </h3>
-  <br>
+      
+      <!-- Ventana con scroll para el gráfico largo abajo -->
+      <div class="scroll-box">
+          <div class="flourish-embed flourish-chart" data-src="visualisation/30261348">
+              <noscript><img src="https://flourish.studio" width="100%" alt="chart visualization" /></noscript>
+          </div>
+      </div>
+    </article>
 
-</body>
-</html>
+    <!-- Tarjeta 3: Datawrapper -->
+    <article class="card-grafico">
+      <span class="badge-herramienta datawrapper">Datawrapper</span>
+      <h2>¿Cuántos episodios llegué a ver en un solo día en mis registros de Netflix?</h2>
+      <div class="canvas-grafico">
+          <div style="min-height:379px" id="datawrapper-vis-g1R5y">
+              <script type="text/javascript" defer src="https://dwcdn.net" charset="utf-8" data-target="#datawrapper-vis-g1R5y"></script>
+              <noscript><img src="https://dwcdn.net" alt="¿Que serie tuve mi mayor cantidad de maratones? (Scatter Plot)" /></noscript>
+          </div>
+      </div>
+      <p>El diagrama de dispersión expone mis conductas de maratones de reproducción. Mientras que el consumo habitual se concentra moderadamente en la base con menos de 5 capítulos por día, resaltan picos aislados de gran intensidad. El récord ocurre a principios de 2021 con 25 episodios reproducidos en una sola jornada, superando incluso los niveles alcanzados durante la cuarentena de 2020</p>
+    </article>
+
+    <!-- Tarjeta 4: Tableau -->
+    <article class="card-grafico">
+      <span class="badge-herramienta tableau">Tableau</span>
+      <h2>¿En qué meses se encuentran mis mayores picos de consumo en Netflix, tanto para series o películas?</h2>
+      <div class="canvas-grafico">
+          <div class='tableauPlaceholder' id='viz1790276614479' style='position: relative'>
+              <noscript>
+                  <a href='#'><img alt='Consumo de series y peliculas ' src='https://tableau.com' style='border: none' /></a>
+              </noscript>
+              <object class='tableauViz' style='display:none;'>
+                  <param name='host_url' value='https%3A%2F%://tableau.com%2F' /> 
+                  <param name='embed_code_version' value='3' /> 
+                  <param name='site_root' value='' />
+                  <param name='name' value='Visualizacionesmensuales/Consumodeseriesypeliculas' />
+                  <param name='tabs' value='no' />
+                  <param name='toolbar' value='yes' />
+                  <param name='static_image' value='https://tableau.com' /> 
+                  <param name='animate_transition' value='yes' />
+                  <param name='display_static_image' value='yes' />
+                  <param name='display_spinner' value='yes' />
+                  <param name='display_overlay' value='yes' />
+                  <param name='display_count' value='yes' />
+                  <param name='language' value='es-ES' />
+                  <param name='filter' value='publish=yes' />
+              </object>
+          </div>                
+          <script type='text/javascript'>                    
+              var divElement = document.getElementById('viz1790276614479');                    
+              var vizElement = divElement.getElementsByTagName('object')[0];                    
+              vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
+              var scriptElement = document.createElement('script');                    
+
 
